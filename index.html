@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Text to Speech Example</h1>
+    <p>Select any text on this page and click the "Speak" button.</p>
+    <p id="text">Build what's next in generative AI</p>
+    
+    <button onclick="speakSelectedText()">Speak</button>
+
+    <script>
+        function speakSelectedText() {
+            const selectedText = window.getSelection().toString();
+            if (selectedText) {
+                const speech = new SpeechSynthesisUtterance(selectedText);
+                speech.lang = 'en-US';  // Dil təyini (İngilis dili)
+                window.speechSynthesis.speak(speech);
+            } else {
+                alert("Please select some text to speak.");
+            }
+        }
+    </script>
+</body>
+</html>
